@@ -48,6 +48,8 @@ class GooglePythonAuth(backend.KeyringBackend):
       credentials.refresh(requests.Request())
       return credentials.token
     except Exception as e:
+      import traceback
+      traceback.print_exc()
       logging.warning("Failed to retrieve Application Default Credentials: {0}".format(e))
 
     try:
